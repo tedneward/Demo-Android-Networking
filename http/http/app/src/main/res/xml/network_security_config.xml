@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is mandated as of Android 9/API 28, to avoid sending
+data "in the clear" over the network. Arguably, the desire to send
+everything encrypted is overkill, but it's well-intentioned.
+
+This file "turns off" that requirement.
+  -->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">tednewardsandbox.site44.com</domain>
+    </domain-config>
+</network-security-config>
