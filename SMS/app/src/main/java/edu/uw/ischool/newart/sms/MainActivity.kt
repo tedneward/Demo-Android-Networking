@@ -3,7 +3,6 @@ package edu.uw.ischool.newart.sms
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Telephony
@@ -16,7 +15,7 @@ import androidx.core.app.ActivityCompat
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var btnSend : Button
+    private lateinit var btnSend : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             // app-defined int constant. The callback method gets the
             // result of the request.
             ActivityCompat.requestPermissions(
-                this, arrayOf<String>(Manifest.permission.SEND_SMS), 1)
+                this, arrayOf(Manifest.permission.SEND_SMS), 1)
             btnSend.isEnabled = false
         } else {
             // Permission already granted. Enable the message button.
@@ -68,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    fun sendSMS() {
+    private fun sendSMS() {
         checkForSmsPermission()
 
         // We can either
